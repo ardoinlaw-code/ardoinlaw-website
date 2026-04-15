@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jimmy Ardoin &amp; Associates, PLLC | Houston Trial Attorney</title>
+  <meta name="description" content="Jimmy Ardoin is a Houston trial attorney with 20+ years experience in trucking accidents, business fraud, and federal criminal defense. 50+ jury trials. Call now." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0a1628;
+      --navy-mid: #112240;
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --white: #ffffff;
+      --gray: #8892a4;
+      --light: #f8f9fb;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--navy);
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(10, 22, 40, 0.97);
+      backdrop-filter: blur(10px);
+      padding: 0 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+      border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+    }
+
+    .nav-logo {
+      color: var(--white);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--gold); }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--navy) !important;
+      padding: 0.5rem 1.25rem;
+      border-radius: 2px;
+      font-weight: 600 !important;
+    }
+
+    .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #1a3a5c 100%);
+      display: flex;
+      align-items: center;
+      padding: 120px 5% 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.5;
+    }
+
+    .hero-content {
+      max-width: 700px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      color: var(--gold);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 em {
+      color: var(--gold);
+      font-style: normal;
+    }
+
+    .hero-sub {
+      color: rgba(255,255,255,0.75);
+      font-size: 1.1rem;
+      max-width: 560px;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+      padding: 0.9rem 2rem;
+      border-radius: 2px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: background 0.2s, transform 0.1s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.4);
+      color: var(--white);
+      padding: 0.9rem 2rem;
+      border-radius: 2px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+      display: inline-block;
+    }
+
+    .btn-outline:hover { border-color: var(--gold); background: rgba(201,168,76,0.1); }
+
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 4rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: var(--gold);
+      display: block;
+    }
+
+    .stat-label {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* SECTIONS */
+    section { padding: 90px 5%; }
+
+    .section-eyebrow {
+      color: var(--gold);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      color: var(--navy);
+      margin-bottom: 1.25rem;
+      line-height: 1.2;
+    }
+
+    .section-lead {
+      color: #4a5568;
+      font-size: 1.05rem;
+      max-width: 600px;
+      line-height: 1.75;
+    }
+
+    /* PRACTICE AREAS */
+    .practice { background: var(--light); }
+
+    .practice-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .practice-card {
+      background: var(--white);
+      border: 1px solid #e2e8f0;
+      border-top: 3px solid var(--gold);
+      padding: 2rem;
+      border-radius: 2px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .practice-card:hover {
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+
+    .practice-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .practice-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: var(--navy);
+      margin-bottom: 0.75rem;
+    }
+
+    .practice-card p {
+      color: #4a5568;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* RESULTS */
+    .results { background: var(--navy); }
+
+    .results .section-title { color: var(--white); }
+    .results .section-lead { color: rgba(255,255,255,0.65); }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .result-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(201,168,76,0.2);
+      padding: 1.75rem;
+      border-radius: 2px;
+    }
+
+    .result-amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .result-desc {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-img {
+      border-radius: 2px;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+    }
+
+    .about-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .about-text p {
+      color: #4a5568;
+      line-height: 1.8;
+      margin-bottom: 1.25rem;
+      font-size: 0.975rem;
+    }
+
+    .credentials {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+
+    .credential {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--navy);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .credential::before {
+      content: '✦';
+      color: var(--gold);
+      font-size: 0.7rem;
+    }
+
+    /* CONTACT */
+    .contact { background: var(--navy); }
+    .contact .section-title { color: var(--white); }
+    .contact .section-lead { color: rgba(255,255,255,0.65); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      margin-top: 3rem;
+      align-items: start;
+    }
+
+    .contact-info { color: rgba(255,255,255,0.8); }
+
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .contact-label {
+      color: var(--gold);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .contact-value {
+      color: var(--white);
+      font-size: 1.05rem;
+      text-decoration: none;
+    }
+
+    .contact-value:hover { color: var(--gold); }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--white);
+      padding: 0.85rem 1rem;
+      border-radius: 2px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      width: 100%;
+      transition: border-color 0.2s;
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder { color: rgba(255,255,255,0.35); }
+
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+
+    .contact-form select option { background: var(--navy); }
+
+    .contact-form textarea { resize: vertical; min-height: 120px; }
+
+    .form-disclaimer {
+      color: rgba(255,255,255,0.4);
+      font-size: 0.78rem;
+      line-height: 1.5;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #060e1a;
+      padding: 2rem 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(201,168,76,0.15);
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.9rem;
+    }
+
+    .footer-logo span { color: var(--gold); }
+
+    .footer-copy {
+      color: rgba(255,255,255,0.3);
+      font-size: 0.8rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hero-stats { gap: 1.5rem; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .about-img { display: none; }
+      footer { flex-direction: column; gap: 0.75rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Jimmy <span>Ardoin</span> &amp; Associates</a>
+  <ul class="nav-links">
+    <li><a href="#practice">Practice Areas</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact" class="nav-cta">Free Consultation</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <p class="hero-eyebrow">Houston Trial Attorney &bull; State &amp; Federal Courts</p>
+    <h1>When the stakes are<br /><em>everything</em>, you need<br />a fighter in your corner.</h1>
+    <p class="hero-sub">Jimmy Ardoin has spent 20 years walking into the fire when everyone else walks away — trucking accidents, business fraud, federal investigations. If your fight is serious, so is he.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Get a Free Consultation</a>
+      <a href="tel:+17135748900" class="btn-outline">Call (713) 574-8900</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <span class="stat-number">20+</span>
+        <span class="stat-label">Years in the Trenches</span>
+      </div>
+      <div>
+        <span class="stat-number">50+</span>
+        <span class="stat-label">Jury Trials Won</span>
+      </div>
+      <div>
+        <span class="stat-number">$10M</span>
+        <span class="stat-label">Jury Verdict</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRACTICE AREAS -->
+<section class="practice" id="practice">
+  <p class="section-eyebrow">What We Handle</p>
+  <h2 class="section-title">Three Practice Areas.<br />One Standard: Win.</h2>
+  <p class="section-lead">Jimmy Ardoin operates at a rare intersection of plaintiff's litigation and criminal defense — giving clients a dual-threat perspective most attorneys will never possess.</p>
+  <div class="practice-grid">
+    <div class="practice-card">
+      <div class="practice-icon">🚛</div>
+      <h3>Trucking &amp; Personal Injury</h3>
+      <p>When an 18-wheeler changes your life forever, you need an attorney who understands federal trucking regulations, carrier liability, and how to maximize your recovery. We fight for catastrophic injury victims and their families.</p>
+    </div>
+    <div class="practice-card">
+      <div class="practice-icon">⚖️</div>
+      <h3>Business Disputes &amp; Fraud</h3>
+      <p>Business partner stealing from you? Breach of fiduciary duty? Complex commercial litigation? Jimmy sees both the civil and criminal angles in every business dispute — and uses that advantage against opponents who don't.</p>
+    </div>
+    <div class="practice-card">
+      <div class="practice-icon">🏛️</div>
+      <h3>Federal Criminal Defense</h3>
+      <p>Federal charges require federal-level experience. From target letters to grand jury proceedings to trial, Jimmy has defended clients in healthcare fraud, securities fraud, money laundering, and international sanctions cases.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="results" id="results">
+  <p class="section-eyebrow">Track Record</p>
+  <h2 class="section-title">Results That Speak<br />for Themselves.</h2>
+  <p class="section-lead">Jimmy doesn't just prepare for battle — he's built for it. These are the moments that define a career.</p>
+  <div class="results-grid">
+    <div class="result-card">
+      <div class="result-amount">$10,000,000</div>
+      <div class="result-desc">Jury verdict secured after taking over a case just four weeks before trial.</div>
+    </div>
+    <div class="result-card">
+      <div class="result-amount">60-Year Sentence</div>
+      <div class="result-desc">Federal sentence reversed on appeal — client given a second chance at life.</div>
+    </div>
+    <div class="result-card">
+      <div class="result-amount">Enron / NatWest Three</div>
+      <div class="result-desc">Defended in one of the most high-profile extradition cases in U.S. history.</div>
+    </div>
+    <div class="result-card">
+      <div class="result-amount">Stanford Financial</div>
+      <div class="result-desc">Defense counsel in the Stanford Financial Group federal prosecution.</div>
+    </div>
+    <div class="result-card">
+      <div class="result-amount">Federal Fraud Defense</div>
+      <div class="result-desc">Represented clients in healthcare fraud, securities fraud, money laundering, and international sanctions violations.</div>
+    </div>
+    <div class="result-card">
+      <div class="result-amount">Texas Super Lawyer</div>
+      <div class="result-desc">Recurring recognition in White-Collar Criminal Defense. National Trial Lawyers Top 100.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img"><img src="jimmy-ardoin.png" alt="Jimmy Ardoin, Trial Attorney" /></div>
+    <div class="about-text">
+      <p class="section-eyebrow">About Jimmy Ardoin</p>
+      <h2 class="section-title">He Walks Into the Fire When Everyone Else Walks Away.</h2>
+      <p>Jimmy Ardoin is the owner and lead trial attorney at Jimmy Ardoin &amp; Associates, PLLC, out of Bellaire, Texas. You call Jimmy when your business partner just stole your company, when an 18-wheeler changed your family's life forever, or when federal agents are at your door.</p>
+      <p>With over 20 years in the trenches and more than 50 jury trials across state and federal courts nationwide, Jimmy has built his career on one principle: show up and fight, no matter what.</p>
+      <p>His practice operates at a rare intersection — plaintiff's litigation and criminal defense — giving him a dual-threat perspective that most attorneys will never possess. He's a former host of <em>Reasonable Doubt</em> on Houston Media Source.</p>
+      <div class="credentials">
+        <div class="credential">Texas Super Lawyer — White-Collar Criminal Defense (recurring)</div>
+        <div class="credential">National Trial Lawyers Top 100</div>
+        <div class="credential">50+ jury trials, state and federal courts nationwide</div>
+        <div class="credential">Former host, Reasonable Doubt (Houston Media Source)</div>
+        <div class="credential">Bellaire, Texas — serving clients nationwide</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <p class="section-eyebrow">Get in Touch</p>
+  <h2 class="section-title">Your Fight Starts Here.</h2>
+  <p class="section-lead">Every case starts with a conversation. Tell us what's happening and we'll tell you where you stand — straight, no runaround.</p>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="contact-item">
+        <span class="contact-label">Phone</span>
+        <a href="tel:+17135748900" class="contact-value">(713) 574-8900</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Toll Free</span>
+        <a href="tel:+18887018509" class="contact-value">(888) 701-8509</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Email</span>
+        <a href="mailto:jimmy@jimmyardoinlaw.com" class="contact-value">jimmy@jimmyardoinlaw.com</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Location</span>
+        <span class="contact-value">Bellaire, Texas<br />Serving clients statewide &amp; nationwide</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Available</span>
+        <span class="contact-value">24/7 for urgent matters</span>
+      </div>
+    </div>
+    <form class="contact-form" id="contactForm">
+      <div class="form-row">
+        <input type="text" name="name" placeholder="Full Name" required />
+        <input type="tel" name="phone" placeholder="Phone Number" required />
+      </div>
+      <input type="email" name="email" placeholder="Email Address" />
+      <select name="matter_type">
+        <option value="" disabled selected>Type of Matter</option>
+        <option value="trucking_pi">Trucking / Personal Injury</option>
+        <option value="business_dispute">Business Dispute / Fraud</option>
+        <option value="federal_criminal">Federal Criminal Defense</option>
+        <option value="other">Other</option>
+      </select>
+      <textarea name="description" placeholder="Briefly describe your situation..."></textarea>
+      <button type="submit" class="btn-primary" style="border:none;cursor:pointer;font-family:inherit;">Send Message</button>
+      <p class="form-disclaimer">Submitting this form does not create an attorney-client relationship. Do not include confidential information. We will contact you to schedule a consultation.</p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Jimmy <span>Ardoin</span> &amp; Associates, PLLC</div>
+  <div class="footer-copy">&copy; 2026 Jimmy Ardoin &amp; Associates, PLLC. All rights reserved.</div>
+</footer>
+
+<script>
+  document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('button');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    const data = Object.fromEntries(new FormData(this));
+    try {
+      const res = await fetch('/api/intake', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (res.ok) {
+        btn.textContent = 'Message Sent';
+        this.reset();
+      } else {
+        btn.textContent = 'Try Again';
+        btn.disabled = false;
+      }
+    } catch(err) {
+      btn.textContent = 'Try Again';
+      btn.disabled = false;
+    }
+  });
+</script>
+
+</body>
+</html>

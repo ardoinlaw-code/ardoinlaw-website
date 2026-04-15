@@ -45,11 +45,15 @@
     }
 
     .nav-logo {
-      color: var(--white);
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
       text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 44px;
+      width: auto;
     }
 
     .nav-logo span { color: var(--gold); }
@@ -465,7 +469,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">Jimmy <span>Ardoin</span> &amp; Associates</a>
+  <a href="#" class="nav-logo"><img src="logo.png" alt="Jimmy Ardoin & Associates" /></a>
   <ul class="nav-links">
     <li><a href="#practice">Practice Areas</a></li>
     <li><a href="#results">Results</a></li>

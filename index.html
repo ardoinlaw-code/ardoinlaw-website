@@ -21,20 +21,25 @@
     }
 
     html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--navy); line-height: 1.6; }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--white);
+    /* ===== TOP BAR ===== */
+    .top-bar {
+      background: var(--gold);
+      text-align: center;
+      padding: 0.5rem 5%;
+      font-size: 0.85rem;
+      font-weight: 600;
       color: var(--navy);
-      line-height: 1.6;
     }
+    .top-bar a { color: var(--navy); text-decoration: none; }
 
-    /* NAV */
+    /* ===== NAV ===== */
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
+      position: sticky;
+      top: 0;
       z-index: 100;
-      background: rgba(10, 22, 40, 0.97);
+      background: rgba(10, 22, 40, 0.98);
       backdrop-filter: blur(10px);
       padding: 0 5%;
       display: flex;
@@ -43,439 +48,203 @@
       height: 70px;
       border-bottom: 1px solid rgba(201, 168, 76, 0.2);
     }
-
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      text-decoration: none;
-    }
-
-    .nav-logo img {
-      height: 64px;
-      width: auto;
-    }
-
-    .nav-logo span { color: var(--gold); }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: rgba(255,255,255,0.8);
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .nav-logo img { height: 56px; width: auto; max-width: 200px; object-fit: contain; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+    .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
     .nav-links a:hover { color: var(--gold); }
+    .nav-cta { background: var(--gold) !important; color: var(--navy) !important; padding: 0.5rem 1.25rem; border-radius: 2px; font-weight: 700 !important; }
+    .nav-cta:hover { background: var(--gold-light) !important; }
+    .nav-phone { color: var(--gold) !important; font-weight: 700 !important; font-size: 0.95rem !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: all 0.3s; }
 
-    .nav-cta {
-      background: var(--gold);
-      color: var(--navy) !important;
-      padding: 0.5rem 1.25rem;
-      border-radius: 2px;
-      font-weight: 600 !important;
-    }
-
-    .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
-
-    /* HERO */
+    /* ===== HERO ===== */
     .hero {
-      min-height: 100vh;
+      min-height: 90vh;
       background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #1a3a5c 100%);
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 4rem;
       align-items: center;
-      padding: 120px 5% 80px;
+      padding: 80px 5% 60px;
       position: relative;
       overflow: hidden;
     }
-
     .hero::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      opacity: 0.5;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23c9a84c' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     }
+    .hero-content { position: relative; z-index: 1; }
+    .hero-eyebrow { color: var(--gold); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.25rem; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 4.5vw, 3.6rem); color: var(--white); line-height: 1.15; margin-bottom: 1.25rem; }
+    .hero h1 em { color: var(--gold); font-style: normal; }
+    .hero-sub { color: rgba(255,255,255,0.75); font-size: 1.05rem; max-width: 520px; margin-bottom: 2rem; line-height: 1.7; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+    .btn-primary { background: var(--gold); color: var(--navy); padding: 0.9rem 2rem; border-radius: 2px; font-weight: 700; font-size: 0.95rem; text-decoration: none; letter-spacing: 0.04em; transition: background 0.2s, transform 0.1s; display: inline-block; }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn-outline { border: 1px solid rgba(255,255,255,0.4); color: var(--white); padding: 0.9rem 2rem; border-radius: 2px; font-weight: 500; font-size: 0.95rem; text-decoration: none; transition: all 0.2s; display: inline-block; }
+    .btn-outline:hover { border-color: var(--gold); background: rgba(201,168,76,0.1); }
+    .hero-stats { display: flex; gap: 2.5rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); flex-wrap: wrap; }
+    .stat-number { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--gold); display: block; }
+    .stat-label { color: rgba(255,255,255,0.6); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
 
-    .hero-content {
-      max-width: 700px;
+    /* Hero Contact Form */
+    .hero-form-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 4px;
+      padding: 2rem;
       position: relative;
       z-index: 1;
     }
+    .hero-form-card h3 { color: var(--gold); font-size: 1rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.5rem; }
+    .hero-form-card p { color: rgba(255,255,255,0.65); font-size: 0.85rem; margin-bottom: 1.25rem; }
+    .hero-form-card input,
+    .hero-form-card select,
+    .hero-form-card textarea { width: 100%; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15); color: var(--white); padding: 0.75rem; border-radius: 2px; font-family: 'Inter', sans-serif; font-size: 0.875rem; margin-bottom: 0.75rem; transition: border-color 0.2s; }
+    .hero-form-card input::placeholder,
+    .hero-form-card textarea::placeholder { color: rgba(255,255,255,0.3); }
+    .hero-form-card input:focus,
+    .hero-form-card select:focus,
+    .hero-form-card textarea:focus { outline: none; border-color: var(--gold); }
+    .hero-form-card select option { background: var(--navy); }
+    .hero-form-card textarea { resize: none; min-height: 80px; margin-bottom: 1rem; }
+    .hero-form-card .btn-primary { width: 100%; text-align: center; border: none; cursor: pointer; font-family: 'Inter', sans-serif; }
+    .form-disclaimer { color: rgba(255,255,255,0.35); font-size: 0.7rem; line-height: 1.5; margin-top: 0.75rem; text-align: center; }
 
-    .hero-eyebrow {
-      color: var(--gold);
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
-    }
+    /* ===== STATS BAR ===== */
+    .stats-bar { background: var(--navy); padding: 2rem 5%; border-top: 1px solid rgba(201,168,76,0.2); }
+    .stats-bar-inner { display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 1.5rem; max-width: 1100px; margin: 0 auto; }
+    .stats-bar-item { text-align: center; }
+    .stats-bar-item .num { font-family: 'Playfair Display', serif; font-size: 1.75rem; color: var(--gold); display: block; }
+    .stats-bar-item .lbl { color: rgba(255,255,255,0.55); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
 
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      color: var(--white);
-      line-height: 1.15;
-      margin-bottom: 1.5rem;
-    }
+    /* ===== SECTIONS ===== */
+    section { padding: 80px 5%; }
+    .section-eyebrow { color: var(--gold); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.75rem; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); color: var(--navy); margin-bottom: 1.25rem; line-height: 1.2; }
+    .section-lead { color: #4a5568; font-size: 1.05rem; max-width: 620px; line-height: 1.75; }
 
-    .hero h1 em {
-      color: var(--gold);
-      font-style: normal;
-    }
-
-    .hero-sub {
-      color: rgba(255,255,255,0.75);
-      font-size: 1.1rem;
-      max-width: 560px;
-      margin-bottom: 2.5rem;
-      line-height: 1.7;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      background: var(--gold);
-      color: var(--navy);
-      padding: 0.9rem 2rem;
-      border-radius: 2px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      text-decoration: none;
-      letter-spacing: 0.05em;
-      transition: background 0.2s, transform 0.1s;
-      display: inline-block;
-    }
-
-    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
-
-    .btn-outline {
-      border: 1px solid rgba(255,255,255,0.4);
-      color: var(--white);
-      padding: 0.9rem 2rem;
-      border-radius: 2px;
-      font-weight: 500;
-      font-size: 0.95rem;
-      text-decoration: none;
-      transition: border-color 0.2s, background 0.2s;
-      display: inline-block;
-    }
-
-    .btn-outline:hover { border-color: var(--gold); background: rgba(201,168,76,0.1); }
-
-    .hero-stats {
-      display: flex;
-      gap: 3rem;
-      margin-top: 4rem;
-      padding-top: 2.5rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .stat-number {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      color: var(--gold);
-      display: block;
-    }
-
-    .stat-label {
-      color: rgba(255,255,255,0.6);
-      font-size: 0.8rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    /* SECTIONS */
-    section { padding: 90px 5%; }
-
-    .section-eyebrow {
-      color: var(--gold);
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      margin-bottom: 0.75rem;
-    }
-
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 3vw, 2.5rem);
-      color: var(--navy);
-      margin-bottom: 1.25rem;
-      line-height: 1.2;
-    }
-
-    .section-lead {
-      color: #4a5568;
-      font-size: 1.05rem;
-      max-width: 600px;
-      line-height: 1.75;
-    }
-
-    /* PRACTICE AREAS */
+    /* ===== PRACTICE AREAS ===== */
     .practice { background: var(--light); }
+    .practice-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.75rem; margin-top: 3rem; }
+    .practice-card { background: var(--white); border: 1px solid #e2e8f0; border-top: 3px solid var(--gold); padding: 2rem; border-radius: 2px; transition: box-shadow 0.2s, transform 0.2s; }
+    .practice-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.08); transform: translateY(-2px); }
+    .practice-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .practice-card h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--navy); margin-bottom: 0.75rem; }
+    .practice-card p { color: #4a5568; font-size: 0.93rem; line-height: 1.7; }
 
-    .practice-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .practice-card {
-      background: var(--white);
-      border: 1px solid #e2e8f0;
-      border-top: 3px solid var(--gold);
-      padding: 2rem;
-      border-radius: 2px;
-      transition: box-shadow 0.2s, transform 0.2s;
-    }
-
-    .practice-card:hover {
-      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-      transform: translateY(-2px);
-    }
-
-    .practice-icon {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .practice-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.25rem;
-      color: var(--navy);
-      margin-bottom: 0.75rem;
-    }
-
-    .practice-card p {
-      color: #4a5568;
-      font-size: 0.95rem;
-      line-height: 1.7;
-    }
-
-    /* RESULTS */
+    /* ===== RESULTS ===== */
     .results { background: var(--navy); }
-
     .results .section-title { color: var(--white); }
     .results .section-lead { color: rgba(255,255,255,0.65); }
+    .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .result-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(201,168,76,0.2); padding: 1.75rem; border-radius: 2px; }
+    .result-amount { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--gold); margin-bottom: 0.5rem; }
+    .result-desc { color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.6; }
 
-    .results-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
+    /* ===== ABOUT ===== */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .about-img { border-radius: 2px; overflow: hidden; }
+    .about-img img { width: 100%; height: 100%; max-height: 600px; object-fit: cover; object-position: center top; display: block; }
+    .about-text p { color: #4a5568; line-height: 1.8; margin-bottom: 1.25rem; font-size: 0.975rem; }
+    .credentials { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 2rem; }
+    .credential { display: flex; align-items: center; gap: 0.75rem; color: var(--navy); font-size: 0.9rem; font-weight: 500; }
+    .credential::before { content: '✦'; color: var(--gold); font-size: 0.7rem; flex-shrink: 0; }
 
-    .result-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(201,168,76,0.2);
-      padding: 1.75rem;
-      border-radius: 2px;
-    }
+    /* ===== WHY US ===== */
+    .why-us { background: var(--light); }
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin-top: 3rem; }
+    .why-card { text-align: center; padding: 2rem 1.5rem; }
+    .why-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .why-card h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--navy); margin-bottom: 0.75rem; }
+    .why-card p { color: #4a5568; font-size: 0.9rem; line-height: 1.65; }
 
-    .result-amount {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.75rem;
-      color: var(--gold);
-      margin-bottom: 0.5rem;
-    }
-
-    .result-desc {
-      color: rgba(255,255,255,0.7);
-      font-size: 0.9rem;
-      line-height: 1.6;
-    }
-
-    /* ABOUT */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
-    }
-
-    .about-img {
-      border-radius: 2px;
-      overflow: hidden;
-      aspect-ratio: 3/4;
-    }
-
-    .about-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
-    }
-
-    .about-text p {
-      color: #4a5568;
-      line-height: 1.8;
-      margin-bottom: 1.25rem;
-      font-size: 0.975rem;
-    }
-
-    .credentials {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      margin-top: 2rem;
-    }
-
-    .credential {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      color: var(--navy);
-      font-size: 0.9rem;
-      font-weight: 500;
-    }
-
-    .credential::before {
-      content: '✦';
-      color: var(--gold);
-      font-size: 0.7rem;
-    }
-
-    /* CONTACT */
+    /* ===== CONTACT ===== */
     .contact { background: var(--navy); }
     .contact .section-title { color: var(--white); }
     .contact .section-lead { color: rgba(255,255,255,0.65); }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      margin-top: 3rem;
-      align-items: start;
-    }
-
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-top: 3rem; align-items: start; }
     .contact-info { color: rgba(255,255,255,0.8); }
-
-    .contact-item {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-      margin-bottom: 1.75rem;
-    }
-
-    .contact-label {
-      color: var(--gold);
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-    }
-
-    .contact-value {
-      color: var(--white);
-      font-size: 1.05rem;
-      text-decoration: none;
-    }
-
+    .contact-item { display: flex; flex-direction: column; gap: 0.25rem; margin-bottom: 1.75rem; }
+    .contact-label { color: var(--gold); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; }
+    .contact-value { color: var(--white); font-size: 1.05rem; text-decoration: none; }
     .contact-value:hover { color: var(--gold); }
-
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-
-    .contact-form input,
-    .contact-form select,
-    .contact-form textarea {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.15);
-      color: var(--white);
-      padding: 0.85rem 1rem;
-      border-radius: 2px;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.9rem;
-      width: 100%;
-      transition: border-color 0.2s;
-    }
-
-    .contact-form input::placeholder,
-    .contact-form textarea::placeholder { color: rgba(255,255,255,0.35); }
-
-    .contact-form input:focus,
-    .contact-form select:focus,
-    .contact-form textarea:focus {
-      outline: none;
-      border-color: var(--gold);
-    }
-
+    .contact-form { display: flex; flex-direction: column; gap: 0.875rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.875rem; }
+    .contact-form input, .contact-form select, .contact-form textarea { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15); color: var(--white); padding: 0.85rem 1rem; border-radius: 2px; font-family: 'Inter', sans-serif; font-size: 0.9rem; width: 100%; transition: border-color 0.2s; }
+    .contact-form input::placeholder, .contact-form textarea::placeholder { color: rgba(255,255,255,0.35); }
+    .contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { outline: none; border-color: var(--gold); }
     .contact-form select option { background: var(--navy); }
-
     .contact-form textarea { resize: vertical; min-height: 120px; }
+    .form-disclaimer { color: rgba(255,255,255,0.4); font-size: 0.78rem; line-height: 1.5; }
 
-    .form-disclaimer {
-      color: rgba(255,255,255,0.4);
-      font-size: 0.78rem;
-      line-height: 1.5;
-    }
-
-    /* FOOTER */
-    footer {
-      background: #060e1a;
-      padding: 2rem 5%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-top: 1px solid rgba(201,168,76,0.15);
-    }
-
-    .footer-logo {
-      font-family: 'Playfair Display', serif;
-      color: rgba(255,255,255,0.5);
-      font-size: 0.9rem;
-    }
-
+    /* ===== FOOTER ===== */
+    footer { background: #060e1a; padding: 2rem 5%; border-top: 1px solid rgba(201,168,76,0.15); }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { font-family: 'Playfair Display', serif; color: rgba(255,255,255,0.5); font-size: 0.9rem; }
     .footer-logo span { color: var(--gold); }
+    .footer-copy { color: rgba(255,255,255,0.3); font-size: 0.8rem; }
+    .footer-phone { color: var(--gold); font-weight: 600; text-decoration: none; font-size: 0.9rem; }
 
-    .footer-copy {
-      color: rgba(255,255,255,0.3);
-      font-size: 0.8rem;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
+    /* ===== MOBILE ===== */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; gap: 2.5rem; padding: 60px 5% 50px; min-height: auto; }
+      .hero-form-card { display: none; }
       .hero-stats { gap: 1.5rem; }
-      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .stats-bar-inner { gap: 1rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-img { max-height: 350px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
       .form-row { grid-template-columns: 1fr; }
-      .about-img { display: none; }
-      footer { flex-direction: column; gap: 0.75rem; text-align: center; }
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; flex-direction: column; gap: 1rem; position: absolute; top: 70px; left: 0; right: 0; background: var(--navy); padding: 2rem 5%; border-bottom: 1px solid rgba(201,168,76,0.2); }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
+      .hero h1 { font-size: 2rem; }
+      .hero-actions { flex-direction: column; }
+      .hero-actions a { text-align: center; }
+      .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
+      .stat-number { font-size: 1.6rem; }
+      .practice-grid { grid-template-columns: 1fr; }
+      .results-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+      section { padding: 60px 5%; }
+      .nav-logo img { height: 44px; }
+    }
+    @media (max-width: 480px) {
+      .why-grid { grid-template-columns: 1fr; }
+      .stats-bar-inner { flex-direction: column; gap: 1.5rem; }
     }
   </style>
 </head>
 <body>
 
+<!-- TOP BAR -->
+<div class="top-bar">
+  Available 24/7 for Urgent Matters &nbsp;|&nbsp; <a href="tel:+17135748900"><strong>(713) 574-8900</strong></a> &nbsp;|&nbsp; <a href="tel:+18887018509"><strong>(888) 701-8509</strong></a>
+</div>
+
 <!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo"><img src="logo.png" alt="Jimmy Ardoin & Associates" /></a>
-  <ul class="nav-links">
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <img src="logo.png" alt="Jimmy Ardoin & Associates" />
+  </a>
+  <ul class="nav-links" id="navLinks">
     <li><a href="#practice">Practice Areas</a></li>
     <li><a href="#results">Results</a></li>
     <li><a href="#about">About</a></li>
+    <li><a href="tel:+17135748900" class="nav-phone">(713) 574-8900</a></li>
     <li><a href="#contact" class="nav-cta">Free Consultation</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- HERO -->
@@ -489,27 +258,50 @@
       <a href="tel:+17135748900" class="btn-outline">Call (713) 574-8900</a>
     </div>
     <div class="hero-stats">
-      <div>
-        <span class="stat-number">20+</span>
-        <span class="stat-label">Years in the Courtroom</span>
-      </div>
-      <div>
-        <span class="stat-number">50+</span>
-        <span class="stat-label">Jury Trials</span>
-      </div>
-      <div>
-        <span class="stat-number">State &amp; Federal</span>
-        <span class="stat-label">Courts Nationwide</span>
-      </div>
+      <div><span class="stat-number">20+</span><span class="stat-label">Years in the Courtroom</span></div>
+      <div><span class="stat-number">50+</span><span class="stat-label">Jury Trials</span></div>
+      <div><span class="stat-number">State &amp; Federal</span><span class="stat-label">Courts Nationwide</span></div>
     </div>
   </div>
+
+  <!-- Inline contact form — visible on desktop, hidden on mobile -->
+  <div class="hero-form-card">
+    <h3>Free Case Review</h3>
+    <p>Tell us what happened. We'll tell you where you stand.</p>
+    <form id="heroForm">
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="tel" name="phone" placeholder="Phone Number" required />
+      <input type="email" name="email" placeholder="Email Address" />
+      <select name="matter_type">
+        <option value="" disabled selected>Type of Matter</option>
+        <option value="trucking_pi">Trucking / Personal Injury</option>
+        <option value="business_dispute">Business Dispute / Fraud</option>
+        <option value="federal_criminal">Federal Criminal Defense</option>
+        <option value="other">Other</option>
+      </select>
+      <textarea name="description" placeholder="Briefly describe your situation..."></textarea>
+      <button type="submit" class="btn-primary">Send — It's Free</button>
+    </form>
+    <p class="form-disclaimer">No attorney-client relationship created until Jimmy agrees to representation. Confidential.</p>
+  </div>
 </section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-bar-inner">
+    <div class="stats-bar-item"><span class="num">20+</span><span class="lbl">Years Experience</span></div>
+    <div class="stats-bar-item"><span class="num">50+</span><span class="lbl">Jury Trials</span></div>
+    <div class="stats-bar-item"><span class="num">$10M+</span><span class="lbl">Jury Verdicts</span></div>
+    <div class="stats-bar-item"><span class="num">24/7</span><span class="lbl">Available for Urgent Matters</span></div>
+    <div class="stats-bar-item"><span class="num">State &amp; Federal</span><span class="lbl">Courts Nationwide</span></div>
+  </div>
+</div>
 
 <!-- PRACTICE AREAS -->
 <section class="practice" id="practice">
   <p class="section-eyebrow">What We Handle</p>
   <h2 class="section-title">Three Practice Areas.<br />One Standard: Win.</h2>
-  <p class="section-lead">Jimmy Ardoin operates at a rare intersection of plaintiff's litigation and criminal defense — giving clients a dual-threat perspective most attorneys will never possess.</p>
+  <p class="section-lead">Jimmy Ardoin operates at a rare intersection of plaintiff's litigation and criminal defense — giving clients a perspective most attorneys simply don't have.</p>
   <div class="practice-grid">
     <div class="practice-card">
       <div class="practice-icon">🚛</div>
@@ -529,6 +321,34 @@
   </div>
 </section>
 
+<!-- WHY US -->
+<section class="why-us">
+  <p class="section-eyebrow">Why Jimmy Ardoin</p>
+  <h2 class="section-title">What Sets This Firm Apart</h2>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">⚡</div>
+      <h3>Fearless Engagement</h3>
+      <p>Jimmy doesn't flinch. No matter how complex the situation, he engages head-on with confidence and composure — and has for 20+ years.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🎯</div>
+      <h3>Dual Civil &amp; Criminal Experience</h3>
+      <p>Most attorneys know one side. Jimmy has fought on both — which means he understands how the other side thinks before they've made their first move.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📋</div>
+      <h3>Trial-Ready From Day One</h3>
+      <p>Every case is prepared as if it's going to trial. That preparation forces better settlements and wins verdicts when settlements fail.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🕐</div>
+      <h3>Available 24/7</h3>
+      <p>Legal crises don't keep business hours. When federal agents are at the door or you've just been in an accident, Saul answers. Jimmy follows up.</p>
+    </div>
+  </div>
+</section>
+
 <!-- RESULTS -->
 <section class="results" id="results">
   <p class="section-eyebrow">Track Record</p>
@@ -541,7 +361,7 @@
     </div>
     <div class="result-card">
       <div class="result-amount">Criminal Acquittals &amp; Reversals</div>
-      <div class="result-desc">Vacation of a 60-year federal sentence on appeal. Multiple indictment dismissals in bank fraud and federal export violations.</div>
+      <div class="result-desc">Vacation of a 60-year federal sentence on appeal. Multiple federal indictment dismissals in bank fraud and export violation cases.</div>
     </div>
     <div class="result-card">
       <div class="result-amount">High-Profile Federal Defense</div>
@@ -552,12 +372,12 @@
       <div class="result-desc">Defended clients facing simultaneous SEC enforcement and DOJ criminal prosecution — protecting liberty and assets at the same time.</div>
     </div>
     <div class="result-card">
-      <div class="result-amount">Federal Fraud Defense</div>
-      <div class="result-desc">Represented clients in healthcare fraud, securities fraud, money laundering, and international sanctions violations.</div>
+      <div class="result-amount">Texas Super Lawyer</div>
+      <div class="result-desc">Recurring recognition in White-Collar Criminal Defense. National Trial Lawyers Top 100 and Top 40 Under 40 honoree.</div>
     </div>
     <div class="result-card">
-      <div class="result-amount">Texas Super Lawyer</div>
-      <div class="result-desc">Recurring recognition in White-Collar Criminal Defense. National Trial Lawyers Top 100.</div>
+      <div class="result-amount">50+ Jury Trials</div>
+      <div class="result-desc">State and federal courts across the country. Jimmy has tried more cases than most attorneys see in a career.</div>
     </div>
   </div>
 </section>
@@ -565,16 +385,18 @@
 <!-- ABOUT -->
 <section id="about">
   <div class="about-grid">
-    <div class="about-img"><img src="jimmy-ardoin.png" alt="Jimmy Ardoin, Trial Attorney" /></div>
+    <div class="about-img">
+      <img src="jimmy-ardoin.png" alt="Jimmy Ardoin, Trial Attorney" loading="lazy" />
+    </div>
     <div class="about-text">
       <p class="section-eyebrow">About Jimmy Ardoin</p>
       <h2 class="section-title">He Walks Into the Fire When Everyone Else Walks Away.</h2>
       <p>Jimmy Ardoin is the owner and lead trial attorney at Jimmy Ardoin &amp; Associates, PLLC, based in Houston, Texas. You call Jimmy when your business partner just stole your company, when an 18-wheeler changed your family's life forever, or when federal agents are at your door.</p>
       <p>With over 20 years in the trenches and more than 50 jury trials across state and federal courts nationwide, Jimmy has built his career on one principle: show up and fight, no matter what.</p>
-      <p>His practice operates at a rare intersection — plaintiff's litigation and criminal defense — giving him a dual-threat perspective that most attorneys will never possess. He is admitted in all four federal districts in Texas and the 5th and 4th Circuit Courts of Appeals.</p>
+      <p>His practice operates at a rare intersection — plaintiff's litigation and criminal defense — giving him a dual-threat perspective that most attorneys will never possess. He is admitted in all four federal districts in Texas and before the 5th and 4th Circuit Courts of Appeals.</p>
       <div class="credentials">
         <div class="credential">Texas Super Lawyer — White-Collar Criminal Defense (recurring)</div>
-        <div class="credential">National Trial Lawyers Top 100</div>
+        <div class="credential">National Trial Lawyers Top 100 and Top 40 Under 40</div>
         <div class="credential">50+ jury trials, state and federal courts nationwide</div>
         <div class="credential">South Texas College of Law, J.D. | University of Texas at Austin, B.A.</div>
         <div class="credential">Houston, Texas — serving clients statewide &amp; nationwide</div>
@@ -591,7 +413,7 @@
   <div class="contact-grid">
     <div class="contact-info">
       <div class="contact-item">
-        <span class="contact-label">Phone</span>
+        <span class="contact-label">Houston</span>
         <a href="tel:+17135748900" class="contact-value">(713) 574-8900</a>
       </div>
       <div class="contact-item">
@@ -610,6 +432,9 @@
         <span class="contact-label">Available</span>
         <span class="contact-value">24/7 for urgent matters</span>
       </div>
+      <div style="margin-top:2rem;">
+        <a href="tel:+17135748900" class="btn-primary" style="display:inline-block;">Call Now — It's Free</a>
+      </div>
     </div>
     <form class="contact-form" id="contactForm">
       <div class="form-row">
@@ -625,7 +450,7 @@
         <option value="other">Other</option>
       </select>
       <textarea name="description" placeholder="Briefly describe your situation..."></textarea>
-      <button type="submit" class="btn-primary" style="border:none;cursor:pointer;font-family:inherit;">Send Message</button>
+      <button type="submit" class="btn-primary" style="border:none;cursor:pointer;font-family:inherit;">Send Message — Free &amp; Confidential</button>
       <p class="form-disclaimer">Submitting this form does not create an attorney-client relationship. Do not include confidential information. We will contact you to schedule a consultation.</p>
     </form>
   </div>
@@ -633,11 +458,41 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">Jimmy <span>Ardoin</span> &amp; Associates, PLLC</div>
-  <div class="footer-copy">&copy; 2026 Jimmy Ardoin &amp; Associates, PLLC. All rights reserved.</div>
+  <div class="footer-inner">
+    <div class="footer-logo">Jimmy <span>Ardoin</span> &amp; Associates, PLLC</div>
+    <a href="tel:+17135748900" class="footer-phone">(713) 574-8900</a>
+    <div class="footer-copy">&copy; 2026 Jimmy Ardoin &amp; Associates, PLLC. All rights reserved.</div>
+  </div>
 </footer>
 
 <script>
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+  // Close menu when link clicked
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+
+  // Hero form
+  document.getElementById('heroForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('button');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    const data = Object.fromEntries(new FormData(this));
+    try {
+      const res = await fetch('/api/intake', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+      btn.textContent = res.ok ? 'Sent! We\'ll be in touch.' : 'Try Again';
+      btn.disabled = !res.ok;
+      if (res.ok) this.reset();
+    } catch { btn.textContent = 'Try Again'; btn.disabled = false; }
+  });
+
+  // Main contact form
   document.getElementById('contactForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     const btn = this.querySelector('button');
@@ -645,22 +500,11 @@
     btn.disabled = true;
     const data = Object.fromEntries(new FormData(this));
     try {
-      const res = await fetch('/api/intake', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      });
-      if (res.ok) {
-        btn.textContent = 'Message Sent';
-        this.reset();
-      } else {
-        btn.textContent = 'Try Again';
-        btn.disabled = false;
-      }
-    } catch(err) {
-      btn.textContent = 'Try Again';
-      btn.disabled = false;
-    }
+      const res = await fetch('/api/intake', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+      btn.textContent = res.ok ? 'Message Sent!' : 'Try Again';
+      btn.disabled = !res.ok;
+      if (res.ok) this.reset();
+    } catch { btn.textContent = 'Try Again'; btn.disabled = false; }
   });
 </script>
 
